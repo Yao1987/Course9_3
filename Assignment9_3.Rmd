@@ -1,0 +1,33 @@
+---
+title: "CourseProject9_3"
+author: "Y. Lu"
+date: "2019-2-25"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Developing data product - Week 3 Assignment
+
+- Dataset **mtcars** is loaded at first. 
+- Relationship between **hp** and **cyl** are ploted. - This relationship is fitted by a staight line that is alos plotted on the 
+
+## 
+
+```{r cars, echo = TRUE}
+
+library(ggplot2)
+data(mtcars)
+
+ff=lm(hp~cyl,data=mtcars)
+cf=coefficients(ff)
+qplot(cyl,hp,data=mtcars)+geom_line(aes(x=cyl,y=cyl*cf[2]+cf[1]),color=2)
+
+```
+
+## Thank you!
+
