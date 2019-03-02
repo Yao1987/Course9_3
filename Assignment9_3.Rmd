@@ -18,15 +18,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## 
 
-```{r cars, echo = TRUE}
+```{r cars, echo = FALSE}
 
-library(ggplot2)
+library(plotly)
+library(magrittr)
 data(mtcars)
 
 ff=lm(hp~cyl,data=mtcars)
 cf=coefficients(ff)
-qplot(cyl,hp,data=mtcars)+geom_line(aes(x=cyl,y=cyl*cf[2]+cf[1]),color=2)
-
+p<-plot_ly(mtcars,x=~cyl,y=~hp,type='scatter') %>% add_trace(y=~cyl*cf[2]+cf[1],mode='lines')
+p
 ```
 
 ## Thank you!
